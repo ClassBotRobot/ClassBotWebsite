@@ -1,0 +1,40 @@
+extends index.pug
+
+block content
+  h2 ClassBots
+  p ClassBots are remote learning robots that allow students to take part in lessons without being physically present
+  if classbots
+    each cb in classbots
+      .card
+        .card-body
+          img.school-thumb.float-right(src=`${cb.logo}`,alt=`${cb.schoolname}`)
+          h5.card-title 
+            | #{cb.name}
+          #last-online Last online: 
+            span.val
+              if cb.lastonline
+                | #{cb.lastonline}
+              else
+                | Never
+          a.btn.btn-primary(href=`/classbot?id=${cb.id}`)
+            i.fa.fa-video-camera
+            |  View
+  else
+    p You do not have access to any ClassBots at the moment
+  h2 Classes
+  p Classes are groups of teachers and students so that you can view live lessons or re-watch previous lessons
+  if classes
+    each c in classes
+      .card
+        .card-body
+          h5.card-title 
+            | #{c.name}
+          a.btn.btn-primary(href=`/classes?id=${c.id}`)
+            i.fa.fa-video-education
+            |  View
+  else
+    p You do not have access to any classes at the moment
+  if user.teacher
+    button.btn.btn-primary
+      i.fa.fa-plus
+      |  Add class

@@ -1,0 +1,98 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name="viewport",content="width=device-width, initial-scale=1, shrink-to-fit=no")
+
+    title ClassBot Online
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+    link(href="/css/styles.css",rel="stylesheet")
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css",rel="stylesheet")
+    link(href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css",rel="stylesheet")
+    link(rel="apple-touch-icon",sizes="180x180",href="/apple-touch-icon.png")
+    link(rel="icon",type="image/png",sizes="32x32",href="/favicon-32x32.png")
+    link(rel="icon",type="image/png",sizes="16x16",href="/favicon-16x16.png")
+    link(rel="manifest",href="/site.webmanifest")
+    link(rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5")
+    meta(name="msapplication-TileColor",content="#da532c")
+    meta(name="theme-color",content="#ffffff")
+
+  body
+    nav.navbar.navbar-expand-sm.navbar-light.bg-light
+      a.navbar-brand(href="/")
+        img.logo(src="/img/logo-simple.png")
+      button.navbar-toggler(type="button",data-toggle="collapse",data-target="#navbarNavAltMarkup", aria-controls="navbarNavAltMarkup",aria-expanded="false",aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+      .collapse.navbar-collapse#navbarNavAltMarkup
+        .navbar-nav
+          a.nav-item.nav-link.active(href="/") Home 
+            span.sr-only (current)
+          a.nav-item.nav-link.cb-link(href="/about") About
+          a.nav-item.nav-link.cb-link(href="/account") My account
+      .center#user-details
+    .container
+      .center#main
+        h1=title
+        .left
+          block content
+            #content !{main}
+    #login.modal.fade(tabindex="-1",role="dialog")
+      .modal-dialog(role="document")
+        .modal-content
+          .modal-header
+            h5.modal-title Login
+            button.close(type="button",data-dismiss="modal",aria-label="Close")
+              span(aria-hidden="true") &times;
+          .modal-body
+            p Please login to use ClassBot
+            form
+              .form-group
+                label.col-form-label(for="email") Email:
+                input#email.form-control(type="email" autocomplete="username")
+              .form-group
+                label.col-form-label(for="password") Password:
+                input#password.form-control(type="password",autocomplete="current-password")
+            #login-status
+          .modal-footer
+            button#btn-login.btn.btn-primary(type="button") 
+              i.fa.fa-thumbs-up
+              |  Login
+            button.btn.btn-secondary(type="button",data-dismiss="modal")
+              i.fa.fa-times
+              |  Close
+    #dlg.modal.fade(tabindex="-1",role="dialog")
+      .modal-dialog(role="document")
+        .modal-content
+          .modal-header
+            h5.modal-title#dlg-title.text-capitalize Dialog
+            button.close(type="button",data-dismiss="modal",aria-label="Close")
+              span(aria-hidden="true") &times;
+          .modal-body
+            #dlg-body
+          .modal-footer
+            button#btn-dlg-ok.btn.btn-primary(type="button") 
+              i.fa.fa-check 
+              |  OK
+            button.btn.btn-secondary(type="button",data-dismiss="modal") 
+              i.fa.fa-close
+              |  Close
+    #info.modal.fade(tabindex="-1",role="dialog")
+      .modal-dialog(role="document")
+        .modal-content
+          .modal-header
+            h5.modal-title#info-title.text-capitalize Info
+            button.close(type="button",data-dismiss="modal",aria-label="Close")
+              span(aria-hidden="true") &times;
+          .modal-body
+            #info-body
+          .modal-footer
+            button.btn.btn-secondary(type="button",data-dismiss="modal") 
+              i.fa.fa-close
+              |  Close
+      
+    script(src="https://code.jquery.com/jquery-3.5.1.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js")
+    script(src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js")
+    script(src="/js/classbot.js")
+    

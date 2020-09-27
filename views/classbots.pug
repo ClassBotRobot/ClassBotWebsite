@@ -1,0 +1,30 @@
+extends index.pug
+
+block content
+	if classbots
+		button.btn.btn-primary.btn-cb(id="btn-create-classbot")
+			i.fa.fa-plus
+			|  Add ClassBot
+		table.table
+			thead
+				tr
+					th School
+					th Name
+					th Last Online
+					th Tools
+			tbody
+				each cb in classbots
+					tr
+						td
+							img.school-thumb.float-left(src=`${cb.logo}`,alt=`${cb.schoolname}`)
+							| #{cb.schoolname}
+						td= cb.name
+						td= cb.lastonline
+						th
+							button.btn.btn-primary.btn-cb(id=`btn-edit-classbot-${cb.id}`)
+								i.fa.fa-edit
+								|  Edit
+							| 
+							button.btn.btn-danger.btn-cb(id=`btn-delete-classbot-${cb.id}`)
+								i.fa.fa-remove
+								|  Delete

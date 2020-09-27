@@ -1,0 +1,30 @@
+extends index.pug
+
+block content
+	if schools
+		button.btn.btn-primary.btn-cb(id="btn-create-school")
+			i.fa.fa-plus
+			|  Add School
+		table.table
+			thead
+				tr
+					th Name
+					th Website
+					th Logo
+					th Tools
+			tbody
+				each s in schools
+					tr
+						td= s.name
+						td
+							a(href=`${s.website}`,target="_blank")=s.website
+						td
+							img.school-thumb(src=`${s.logo}`,alt=`${s.name}`)
+						td
+							button.btn.btn-primary.btn-cb(id=`btn-edit-school-${s.id}`)
+								i.fa.fa-edit
+								|  Edit
+							| 
+							button.btn.btn-danger.btn-cb(id=`btn-delete-school-${s.id}`)
+								i.fa.fa-remove
+								|  Delete

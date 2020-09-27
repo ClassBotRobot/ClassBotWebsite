@@ -1,0 +1,44 @@
+extends index.pug
+
+block content
+	if users
+		button.btn.btn-primary.btn-cb(id="btn-create-user")
+			i.fa.fa-plus
+			|  Add user
+		table.table
+			thead
+				tr
+					th School
+					th Email
+					th Title
+					th Firstname
+					th Lastname
+					th Admin
+					th Manager
+					th Teacher
+					th Tools
+			tbody
+				each u in users
+					tr
+						td= u.schoolname
+						td= u.email
+						td= u.title
+						td= u.firstname
+						td= u.lastname
+						td
+							if u.admin
+								i.fa.fa-check
+						td
+							if u.manager
+								i.fa.fa-check
+						td
+							if u.teacher
+								i.fa.fa-check
+						td
+							button.btn.btn-primary.btn-cb(id=`btn-edit-user-${u.id}`)
+								i.fa.fa-edit
+								|  Edit
+							| 
+							button.btn.btn-danger.btn-cb(id=`btn-delete-user-${u.id}`)
+								i.fa.fa-remove
+								|  Delete

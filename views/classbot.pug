@@ -1,0 +1,28 @@
+extends index.pug
+
+block content
+	if cb
+		img.school-thumb.float-right(src=`${cb.logo}`)
+		h2.center= cb.name
+
+		.container
+			.row
+				.col-sm-2
+					.row
+						button.cb-mode.btn
+							i.fa.fa-video-camera
+							|  Live
+					.row
+						button.cb-mode.btn
+							i.fa.fa-camera
+							|  Replay
+					.row 
+						button.cb-mode.btn
+							i.fa.fa-share
+							|  Share
+					.row
+						button.cb-mode.btn
+							i.fa.fa-comment
+							|  Chat
+				.col.flex.player
+					img.loading(src="/img/logo.png")

@@ -1,0 +1,69 @@
+extends index.pug
+
+block content
+	if user
+		|You can manage your account settings here
+		form(method="post", action="/api/user")
+			if error
+				.center.alert.alert-danger #{error}
+			if success
+				.center.alert.alert-success #{success}
+			.form-group
+				label(for=firstname) Title:
+				input.form-control(value=user.title,name="title")
+			.form-group
+				label(for=firstname) First name:
+				input.form-control(value=user.firstname,name="firstname")
+			.form-group
+				label(for=lastname) Last name:
+				input.form-control(value=user.lastname,name="lastname")
+			.form-group
+				label(for=email) Email address:
+				input.form-control(value=user.email,name="email",autocomplete="email")
+			.form-group
+				label(for=password) Current Password:
+				input.form-control(type="password",name="password",autocomplete="current-password")
+			.form-group
+				label(for=newpassword) Change Password:
+				input.form-control(type="password",placeholder="Leave blank to keep unchanged",name="newpassword",autocomplete="new-password")
+				input.form-control(type="password",placeholder="Confirm password",name="newpassword2",autocomplete="new-password")
+			button.btn.btn-primary(type="submit") 
+				i.fa.fa-save 
+				|  Save changes
+		h2.center Admin
+		if user.admin
+			|You are logged in as an admin
+			.card-deck
+				.card
+					.card-body
+						h5.card-title Schools
+						h6 #{stats.schools} schools registered
+						p School accounts let you assign teacher and student roles to users within different school environments
+						a.btn.btn-primary(href="/schools") 
+							i.fa.fa-graduation-cap
+							|  Manage schools
+				.card
+					.card-body
+						h5.card-title Users
+						h6 #{stats.users} users registered
+						p Users can log in and use ClassBot resources
+						a.btn.btn-primary(href="/users")
+							i.fa.fa-child
+							|  Manage users
+				.card
+					.card-body
+						h5.card-title ClassBots
+						h6 #{stats.classbots} classbots registered
+						p ClassBots are physical classroom robots that allow remote learning
+						a.btn.btn-primary(href="/classbots")
+							i.fa.fa-user
+							|  Manage ClassBots
+		else
+			|You are not logged in as an admin user. 
+			form(method="post",action="/api/admin")
+				.form-group
+				label(for="adminpassword") Admin Password:
+				input.form-control(type="password",name="password")
+				button.btn.btn-primary(type="submit") Request admin access
+	else
+		p You need to log in before you can edit your user details

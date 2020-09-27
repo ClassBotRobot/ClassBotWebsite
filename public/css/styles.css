@@ -1,0 +1,50 @@
+.center {
+  text-align: center;
+}
+
+.left {
+	text-align: left;
+}
+
+.container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+body {
+  background-color: #eef;
+}
+
+.school-thumb {
+	max-width: 6em;
+}
+
+.logo {
+	width: 3em;
+	transition: all 1s;
+}
+
+.logo:hover {
+	animation: 0.5s wiggle linear infinite alternate;
+}
+
+.cb-mode {
+	flex:1;
+}
+
+.player {
+	border: solid 2px black;
+	background-color: #aaa;
+	min-height: 50vh;
+}
+
+.loading {
+	width: 100%;
+}
+
+@keyframes wiggle{
+	from { transform: 0; }
+	to { transform: rotate(15deg); }
+}
