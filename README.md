@@ -2,6 +2,8 @@
 
 Our idea is to create a low cost remote learning classroom robot (ClassBot) which allows students to virtually present in the classroom with their friends even if they’re stuck in a hospital bed or recovering at home. Our team has developed a prototype which makes education accessible to all - so nobody needs to be left behind - for a fraction of the cost of any similar products on the market.
 
+The product is a robot that the student can speak through, see through and hear through via a control interface built into the website
+
 # Contributing
 * Fork the repository to your own profile, edit the code there.
 
